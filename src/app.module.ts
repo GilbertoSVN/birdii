@@ -5,13 +5,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import typeormConfig from './config/typeorm.config';
 @Module({
   imports: [
-    UsersModule,
     ConfigModule.forRoot({
       envFilePath: '.env',
       isGlobal: true,
       load: [typeormConfig],
     }),
     TypeOrmModule.forRoot(typeormConfig()),
+    UsersModule,
   ],
   controllers: [],
   providers: [],
