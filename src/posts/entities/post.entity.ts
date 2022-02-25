@@ -17,13 +17,12 @@ export class PostEntity extends BaseEntity {
   @Column({
     type: 'text',
     length: 777,
-    nullable: false,
+    nullable: true,
   })
   description: string;
 
   @Column({
     type: 'int',
-    length: 1,
     nullable: false,
     default: 0,
   })
@@ -31,7 +30,6 @@ export class PostEntity extends BaseEntity {
 
   @Column({
     type: 'int',
-    length: 1,
     nullable: false,
     default: 0,
   })
@@ -44,6 +42,7 @@ export class PostEntity extends BaseEntity {
   userId: string;
 
   @ManyToOne(() => UsersEntity, (user) => user.posts)
+  @JoinColumn([{ name: 'userId', referencedColumnName: 'id' }])
   relatedUser: UsersEntity;
 
   @Column({

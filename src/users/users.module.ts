@@ -12,5 +12,6 @@ import { GetUsersService } from './services/get-users.service';
   imports: [TypeOrmModule.forFeature([UsersRepository])],
   controllers: [GetUsersController, CreateUserController, GetUserController],
   providers: [GetUsersService, CreateUserService, GetUserService],
+  exports: [GetUserService],
 })
 export class UsersModule {}
