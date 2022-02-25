@@ -1,5 +1,6 @@
 import { BaseEntity } from 'common/entities/base.entity';
-import { Column, Entity, Index } from 'typeorm';
+import { PostEntity } from 'posts/entities/post.entity';
+import { Column, Entity, Index, OneToMany } from 'typeorm';
 
 @Index('PK__USERS', ['id'], {
   unique: true,
@@ -12,4 +13,10 @@ export class UsersEntity extends BaseEntity {
     unique: true,
   })
   username: string;
+
+  @OneToMany(() => PostEntity, (post) => post.relatedUser, {
+    onDelete: 'SET NULL',
+    onUpdate: 'CASCADE',
+  })
+  posts: PostEntity[];
 }
