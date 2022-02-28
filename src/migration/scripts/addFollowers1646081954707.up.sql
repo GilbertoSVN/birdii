@@ -2,6 +2,7 @@ CREATE TABLE followers (
   id uuid NOT NULL,
   followedId TEXT NOT NULL,
   followedById DATETIME NOT NULL,
+  createdAt DATETIME NOT NULL,
   CONSTRAINT PK__FOLLOWERS PRIMARY KEY (id)
 );
 
