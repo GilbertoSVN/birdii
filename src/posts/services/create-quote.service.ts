@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { BaseService } from 'common/services/base.services';
-import { CreatePostDto } from 'posts/dto/create-post.dto';
+import { CreateQuoteDto } from 'posts/dto/create-quote.dto';
 import { PostEntity } from 'posts/entities/post.entity';
 import { PostRepository } from 'posts/repositories/post.repository';
 import { GetUserService } from 'users/services/get-user.service';
 import { CheckUserPostDayService } from './check-user-post-day.service';
 
 @Injectable()
-export class CreatePostService extends BaseService<PostEntity> {
+export class CreateQuoteService extends BaseService<PostEntity> {
   constructor(
     @InjectRepository(PostRepository)
     private readonly postRepository: PostRepository,
@@ -18,13 +18,15 @@ export class CreatePostService extends BaseService<PostEntity> {
     super(postRepository);
   }
 
-  async create(createPostDto: CreatePostDto) {
+  async create(createQuoteDto: CreateQuoteDto) {
     await this.getUserService.findOne({
-      id: createPostDto.userId,
+      id: createQuoteDto.userId,
     });
 
-    await this.checkUserPostDayService.checkUserPostDay(createPostDto.userId);
+    await this.checkUserPostDayService.checkUserPostDay(createQuoteDto.userId);
 
-    return this.postRepository.save(this.postRepository.create(createPostDto));
+    return this.postRepository.save(
+      this.postRepository.create({ ...createQuoteDto, isQuote: true }),
+    );
   }
 }
