@@ -1,6 +1,3 @@
-import { IsUUID } from 'class-validator';
+import { BaseUserIdDto } from './common/base-userId.dto';
 
-export class AddUserPostCountDto {
-  @IsUUID()
-  userId: string;
-}
+export class AddUserPostCountDto extends BaseUserIdDto {}
