@@ -4,6 +4,7 @@ import { CreateUserController } from './controllers/create-user.controller';
 import { GetUserController } from './controllers/get-user.controller';
 import { GetUsersController } from './controllers/get-users.controller';
 import { UsersRepository } from './repositories/users.repository';
+import { AddUserPostCountService } from './services/add-user-post-count.service';
 import { CreateUserService } from './services/create-user.service';
 import { GetUserService } from './services/get-user.service';
 import { GetUsersService } from './services/get-users.service';
@@ -11,7 +12,12 @@ import { GetUsersService } from './services/get-users.service';
 @Module({
   imports: [TypeOrmModule.forFeature([UsersRepository])],
   controllers: [GetUsersController, CreateUserController, GetUserController],
-  providers: [GetUsersService, CreateUserService, GetUserService],
-  exports: [GetUserService],
+  providers: [
+    GetUsersService,
+    CreateUserService,
+    GetUserService,
+    AddUserPostCountService,
+  ],
+  exports: [GetUserService, AddUserPostCountService],
 })
 export class UsersModule {}

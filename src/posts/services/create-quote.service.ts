@@ -4,6 +4,7 @@ import { BaseService } from 'common/services/base.services';
 import { CreateQuoteDto } from 'posts/dto/create-quote.dto';
 import { PostEntity } from 'posts/entities/post.entity';
 import { PostRepository } from 'posts/repositories/post.repository';
+import { AddUserPostCountService } from 'users/services/add-user-post-count.service';
 import { GetUserService } from 'users/services/get-user.service';
 import { CheckUserPostDayService } from './check-user-post-day.service';
 
@@ -14,6 +15,7 @@ export class CreateQuoteService extends BaseService<PostEntity> {
     private readonly postRepository: PostRepository,
     private readonly getUserService: GetUserService,
     private readonly checkUserPostDayService: CheckUserPostDayService,
+    private readonly addUserPostCount: AddUserPostCountService,
   ) {
     super(postRepository);
   }
@@ -24,6 +26,10 @@ export class CreateQuoteService extends BaseService<PostEntity> {
     });
 
     await this.checkUserPostDayService.checkUserPostDay(createQuoteDto.userId);
+
+    await this.addUserPostCount.addUserPostCount({
+      userId: createQuoteDto.userId,
+    });
 
     return this.postRepository.save(
       this.postRepository.create({ ...createQuoteDto, isQuote: true }),

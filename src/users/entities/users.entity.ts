@@ -14,6 +14,11 @@ export class UsersEntity extends BaseEntity {
   })
   username: string;
 
+  @Column({
+    type: 'integer',
+  })
+  totalPosts: number;
+
   @OneToMany(() => PostEntity, (post) => post.relatedUser, {
     onDelete: 'SET NULL',
     onUpdate: 'CASCADE',
