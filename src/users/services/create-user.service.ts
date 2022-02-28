@@ -23,6 +23,8 @@ export class CreateUserService extends BaseService<UsersEntity> {
       throw new ConflictException('User already exists!');
     }
 
-    return this.usersRepository.save(this.usersRepository.create({ username }));
+    return this.usersRepository.save(
+      this.usersRepository.create({ username, totalPosts: 0 }),
+    );
   }
 }
