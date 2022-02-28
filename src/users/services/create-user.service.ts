@@ -24,7 +24,12 @@ export class CreateUserService extends BaseService<UsersEntity> {
     }
 
     return this.usersRepository.save(
-      this.usersRepository.create({ username, totalPosts: 0 }),
+      this.usersRepository.create({
+        username,
+        totalPosts: 0,
+        totalFollowed: 0,
+        totalFollowers: 0,
+      }),
     );
   }
 }
