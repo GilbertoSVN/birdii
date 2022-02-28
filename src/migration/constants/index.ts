@@ -11,3 +11,5 @@ export const ADD_FOLLOWERS_UP = `${SCRIPTS_FOLDER}/addFollowers1646081954707.up.
 export const ADD_FOLLOWERS_DOWN = `${SCRIPTS_FOLDER}/addFollowers1646081954707.down.sql`;
 export const ADD_FOLLOWED_TO_USERS_TABLE_UP = `${SCRIPTS_FOLDER}/addFollowedToUsersTable1646084855564.up.sql`;
 export const ADD_FOLLOWED_TO_USERS_TABLE_DOWN = `${SCRIPTS_FOLDER}/addFollowedToUsersTable1646084855564.down.sql`;
+export const ADD_FOLLOWERS_TO_USERS_TABLE_UP = `${SCRIPTS_FOLDER}/addFollowersToUsersTable1646085067437.up.sql`;
+export const ADD_FOLLOWERS_TO_USERS_TABLE_DOWN = `${SCRIPTS_FOLDER}/addFollowersToUsersTable1646085067437.down.sql`;
