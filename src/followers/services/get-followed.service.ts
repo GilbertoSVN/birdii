@@ -4,7 +4,7 @@ import { BaseService } from 'common/services/base.services';
 import { GetFollowedDto } from 'followers/dto/get-followed.dto';
 import { FollowerEntity } from 'followers/entities/follower.entity';
 import { FollowerRepository } from 'followers/repositories/follower.repository';
-import { ILike, SelectQueryBuilder } from 'typeorm';
+import { SelectQueryBuilder } from 'typeorm';
 
 @Injectable()
 export class GetFollowedService extends BaseService<FollowerEntity> {
