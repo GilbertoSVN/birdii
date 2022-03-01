@@ -1,6 +1,6 @@
 export class Follower {}
 import { BaseEntity } from 'common/entities/base.entity';
-import { Column, Entity, Index, OneToMany } from 'typeorm';
+import { Column, Entity, Index } from 'typeorm';
 
 @Index('PK__FOLLOWERS', ['id'], {
   unique: true,
@@ -16,10 +16,4 @@ export class FollowerEntity extends BaseEntity {
     type: 'uuid',
   })
   followedById: string;
-
-  // @OneToMany(() => PostEntity, (post) => post.relatedUser, {
-  //   onDelete: 'SET NULL',
-  //   onUpdate: 'CASCADE',
-  // })
-  // posts: PostEntity[];
 }
