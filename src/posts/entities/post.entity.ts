@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { BaseEntity } from 'common/entities/base.entity';
 import {
   Column,
@@ -14,6 +15,7 @@ import { UsersEntity } from 'users/entities/users.entity';
 })
 @Entity('posts')
 export class PostEntity extends BaseEntity {
+  @ApiProperty()
   @Column({
     type: 'text',
     length: 777,
@@ -21,6 +23,7 @@ export class PostEntity extends BaseEntity {
   })
   description: string;
 
+  @ApiProperty()
   @Column({
     type: 'int',
     nullable: false,
@@ -28,6 +31,7 @@ export class PostEntity extends BaseEntity {
   })
   isRepost: boolean;
 
+  @ApiProperty()
   @Column({
     type: 'int',
     nullable: false,
@@ -35,6 +39,7 @@ export class PostEntity extends BaseEntity {
   })
   isQuote: boolean;
 
+  @ApiProperty()
   @Column({
     type: 'uuid',
     nullable: false,
@@ -45,6 +50,7 @@ export class PostEntity extends BaseEntity {
   @JoinColumn([{ name: 'userId', referencedColumnName: 'id' }])
   relatedUser: UsersEntity;
 
+  @ApiProperty()
   @Column({
     type: 'uuid',
     nullable: true,
