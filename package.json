@@ -21,19 +21,23 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js --config src/config/typeorm.config.command.ts",
     "migration:create": "NODE_ENV=development yarn typeorm migration:create --name",
-    "migration:run": "NODE_ENV=development yarn typeorm migration:run --name"
+    "migration:run": "NODE_ENV=development yarn typeorm migration:run"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
     "@nestjs/config": "^1.2.0",
     "@nestjs/core": "^8.0.0",
+    "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/typeorm": "^8.0.3",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
-    "sqlite": "^4.0.23",
-    "typeorm": "^0.2.43"
+    "sqlite3": "^5.0.2",
+    "typeorm": "^0.2.43",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@nestjs/cli": "^8.0.0",

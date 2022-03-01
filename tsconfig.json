@@ -1,21 +1,26 @@
 {
   "compilerOptions": {
+    "incremental": true,
+    "target": "es2021",
     "module": "commonjs",
     "declaration": true,
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "es2017",
     "sourceMap": true,
+    "rootDirs": ["src", "tests"],
     "outDir": "./dist",
-    "baseUrl": "./",
-    "incremental": true,
+    "removeComments": true,
+    "baseUrl": "src",
+    "paths": {
+      "~/": [""],
+      "~/test/": ["../test/"],
+    },
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "skipLibCheck": true,
-    "strictNullChecks": false,
-    "noImplicitAny": false,
-    "strictBindCallApply": false,
-    "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
-  }
+    "forceConsistentCasingInFileNames": true
+  },
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  },
+  "include": ["src", "test"]
 }

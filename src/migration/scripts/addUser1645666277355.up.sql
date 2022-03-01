@@ -1,0 +1,6 @@
+CREATE TABLE users (
+  id uuid NOT NULL,
+  username TEXT NOT NULL,
+  createdAt DATETIME NOT NULL,
+  CONSTRAINT PK__USERS PRIMARY KEY (id)
+)
