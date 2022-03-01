@@ -26,7 +26,7 @@ export class CreateFollowerService extends BaseService<FollowerEntity> {
     await this.getUserService.findOne({ id: createFollower.followedId });
     await this.getUserService.findOne({ id: createFollower.followedById });
 
-    const followExists = this.getFollowService.getOne(createFollower);
+    const followExists = await this.getFollowService.getOne(createFollower);
 
     if (followExists) {
       throw new ConflictException('Follow relation already exists!');
