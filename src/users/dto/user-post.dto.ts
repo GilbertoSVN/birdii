@@ -14,6 +14,6 @@ export class UserPostDto {
   @ApiProperty()
   totalFollowers: number;
 
-  @ApiProperty()
+  @ApiProperty({ type: [CreatePostDto] })
   posts: CreatePostDto[];
 }
