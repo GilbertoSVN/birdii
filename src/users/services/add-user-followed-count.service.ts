@@ -20,7 +20,7 @@ export class AddUserFollowedCountService extends BaseService<UsersEntity> {
     return this.usersRepository.save(
       this.usersRepository.create({
         ...user,
-        totalFollowers: user.totalFollowers + 1,
+        totalFollowed: user.totalFollowed + 1,
       }),
     );
   }
